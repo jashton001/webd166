@@ -29,8 +29,8 @@ $comment = $_POST['comments'];
     <p><strong>Entered Name: </strong><?php print $name; ?></p>
     <p><strong>Entered E-Mail: </strong><?php print $email; ?></p>
     <p><strong>Entered Phone Number: </strong><?php print $phone; ?></p>
-    <p><strong>How Did You Hear Us From: </strong><?php print $heard; ?></p>
+    <p><strong>Where Did You Hear About Us: </strong><?php print $heard; ?></p>
     <p><strong>Comments: </strong><?php print $comment; ?></p>
-
+</main>
 </body>
 </html>

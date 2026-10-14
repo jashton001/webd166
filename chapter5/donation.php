@@ -4,9 +4,9 @@ ini_set('display_errors', 1); // Let me learn from my mistakes,
 error_reporting(E_ALL);      // Show all possible problems,
 
 // Get and clean values from the form.
-$firstName = trim($_POST["first_name"]);
-$lastName = trim($_POST["last_name"]);
-$email = trim($_POST["email"]);
+$firstName = trim($_POST["first_name"] ?? '');
+$lastName = trim($_POST["last_name"] ?? '');
+$email = trim($_POST["email"] ?? '');
 
 $safe_firstName = htmlspecialchars($firstName,ENT_QUOTES, 'UTF-8');
 $safe_lastName = htmlspecialchars($lastName,ENT_QUOTES, 'UTF-8');
@@ -14,7 +14,6 @@ $safe_email = htmlspecialchars($email,ENT_QUOTES, 'UTF-8');
 
 // Format the donation amount to two decimal places.
 $donation = $_POST['donation'] ?? 0;
-$donation = number_format($donation, 2);
 
 // $amount = number_format((float) $amount, 2); Either is acceptable for formatting the amount to two decimal places.
 $donation = number_format((float) $donation, 2);
@@ -32,16 +31,17 @@ $length = strlen($lastName);
 $conf = $length . $last_initial . $orderRand;
 
 // Create the confirmation message
-$msg = "<p> Thank you $safe_firstName $safe_lastName for your donation of $$donation! We really appreciate it! </p>" .
-"<p>Your confirmation number is <b>$conf</b>. We will email your receipt to $safe_email </p>. <br>\n" . "<p> Our goal is to help take care of these beautiful animals to prevent them from harmful environments.
- We continue to strive to keep them safe!</p>"
+$msg = "<p> Thank you $safe_firstName $safe_lastName for your donation of \$$donation. </p>";
+$msg  .= "<p>Your confirmation number is <b>$conf</b>. We will email your receipt to $safe_email. </p>";
 ?>
 
 <!DOCTYPE html>
+<!-- Joe Ashton -->
 <html lang="en">
 
 <!-- Builds the donation conformation format -->
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Donation Confirmation</title>
 
@@ -95,6 +95,7 @@ $msg = "<p> Thank you $safe_firstName $safe_lastName for your donation of $$dona
 
         <!-- PHP GOES HERE -->
          <?php echo $msg; ?>
+        
 
     </section>
 

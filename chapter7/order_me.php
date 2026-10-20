@@ -35,7 +35,7 @@ $allowedToppings = [
     // Add the remaining toppings here. Remove the comment slashes and replace the blanks with the correct values.
 
      'sausage' => 'Sausage',
-     'meatball' => 'Meatball',
+     'meatballs' => 'Meatballs',
      'tomato' => 'Tomato',
      'onion' => 'Onion',
      'olives' => 'Olives',
